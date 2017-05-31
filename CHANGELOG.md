@@ -4,25 +4,83 @@
 
 ## Master
 
+Due to the removal of legacy code, there are a few breaking changes in this new version that affect both template writers as well as developers. We've provided a migration guide to help you through these changes, which you can find here:
+[Migration Guide for 2.0](https://github.com/SwiftGen/StencilSwiftKit/blob/master/Documentation/MigrationGuide.md#stencilswiftkit-20-swiftgen-50)
+
+### Bug Fixes
+
+* Fix `snakeToCamelCase` parameters information in README.  
+  [Liquidsoul](https://github.com/Liquidsoul)
+  [#45](https://github.com/SwiftGen/StencilSwiftKit/pulls/45)
+
+### Breaking Changes
+
+* The `ParametersError` enum has been replaced by the `Parameters.Error` nested type.  
+  [Olivier Halligon](https://github.com/AliGator)
+  [#37](https://github.com/SwiftGen/SwiftGenKit/pulls/37)
+* The `FilterError` enum has been replaced by the `Filters.Error` nested type.  
+  [Olivier Halligon](https://github.com/AliGator)
+  [#37](https://github.com/SwiftGen/SwiftGenKit/pulls/37)
+* The filters in `StringFilters` and `NumFilters` are now located under `Filters.Strings` and `Filters.Numbers`.  
+  [Olivier Halligon](https://github.com/AliGator)
+  [#40](https://github.com/SwiftGen/SwiftGenKit/pulls/40)
+* Removed the `join` filter, as it's now integrated in `Stencil` proper.  
+  [David Jennes](https://github.com/djbe)
+  [#10](https://github.com/SwiftGen/StencilSwiftKit/pull/10)
+* Refactored the `snakeToCamelCase` filter to now accept an (optional) boolean parameter to control the `noPrefix` behaviour.  
+  [David Jennes](https://github.com/djbe)
+  [#41](https://github.com/SwiftGen/StencilSwiftKit/pull/41)
+* Rename the `stringToSwiftIdentifier` function to `swiftIdentifier` to better match the other method names.  
+  [David Jennes](https://github.com/djbe)
+  [#46](https://github.com/SwiftGen/StencilSwiftKit/pull/46)
+
+### New Features
+
+* Added the `removeNewlines` filter to remove newlines (and spaces) from a string.  
+  [David Jennes](https://github.com/djbe)
+  [#47](https://github.com/SwiftGen/StencilSwiftKit/pull/47)
+
+### Internal Changes
+
+_None_
+
+## 1.0.2
+
 ### Bug Fixes
 
 * The context enrich function won't overwrite existing values in the `env` and `param` variables.  
   [David Jennes](https://github.com/djbe)
   [#29](https://github.com/SwiftGen/SwiftGenKit/issues/29)
 
-### Breaking Changes
-
-_None_
-
 ### New Features
 
-_None_
+* Added camelToSnakeCase filter.  
+  [Gyuri Grell](https://github.com/ggrell)
+  [#24](https://github.com/SwiftGen/StencilSwiftKit/pull/24)
 
 ### Internal Changes
 
 * Further refactor the Rakefile into rakelibs, and add a Gemfile for gem dependencies.  
   [David Jennes](https://github.com/djbe)
   [#28](https://github.com/SwiftGen/SwiftGenKit/issues/28)
+  [#31](https://github.com/SwiftGen/SwiftGenKit/issues/31)
+* Update Stencil to 0.9.0 and update project to Xcode 8.3.  
+  [Diogo Tridapalli](https://github.com.diogot)
+  [#32](https://github.com/SwiftGen/StencilSwiftKit/pull/32)
+* Added documentation for tags and filters.  
+  [David Jennes](https://github.com/djbe)
+  [#12](https://github.com/SwiftGen/StencilSwiftKit/pull/12)
+
+### Deprecations
+
+* The `ParametersError` enum has been replaced by the `Parameters.Error` nested type.
+  `ParametersError` still works (it is now `typealias`) but will be removed in the
+  next major release.  
+  [Olivier Halligon](https://github.com/AliGator)
+* The `FilterError` enum has been replaced by the `Filters.Error` nested type.
+  `FilterError` still works (it is now `typealias`) but will be removed in the
+  next major release.  
+  [Olivier Halligon](https://github.com/AliGator)
 
 ## 1.0.1
 
